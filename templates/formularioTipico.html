@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" name="elFormulario" id="miFormulario" method="post">
+        <p>
+            <label for="busqueda">Buscar por:</label>
+            <input id="busqueda" name="busqueda" type="text" />
+            <input id="submit" type="submit" value="Buscar" />
+        </p>
+    </form>
+    <script>
+        function printDom(node, prefix) {
+            /*Aqui ponemos el nombre del nodo, el tipo de nodo.*/
+            console.log(`${prefix} ${node.nodeName} : ${node.nodeType} -> ${node.nodeValue}`);
+            for (let i = 0; i < node.childNodes.length; i++) {
+                printDom(node.childNodes[i], `${prefix} \t`)
+            }
+        }
+        printDom(document.getElementById('miFormulario'), "");
+
+    </script>
+</body>
+
+</html>
