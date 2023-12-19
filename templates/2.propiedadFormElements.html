@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propiedad forms.elements</title>
+</head>
+
+<body>
+    <form action="" id="formulario" method="">
+        <label for="nombre">Escriba su nombre</label><br>
+        <input type="text" id="nombre" name="nombre"><br>
+
+        <label for="apellidos">Escriba su apellidos</label><br>
+        <input type="text" id="apellidos" name="apellidos"><br>
+
+        <label for="genero">Escriba su genero</label><br>
+        <input type="radio" id="hombre" name="genero" value="hombre">
+        <label for="hombre">Hombre</label>
+        <input type="radio" id="mujer" name="genero" value="mujer">
+        <label for="mujer">Mujer</label><br><br>
+        <!--Creamos un button de type submit para que envie todos los datos del formulario-->
+        <button type="submit" id="enviar" value="">Enviar</button>
+    </form>
+    <script>
+        //Guardar la referencia del formulario
+        const miFormulario = document.getElementById('formulario');
+
+        //una vez obtenemos el formulario, es bueno hacer un if para saber si existe o no el formulario
+
+        if (!miFormulario) {
+            console.log('No existe el formulario');
+        } else {
+            //Agregamos un escuchador de eventos. Que es un escuchador de eventos? es una funcion que se ejecuta cuando ocurre un evento
+            miFormulario.addEventListener("submit", function (event) {
+                event.preventDefault(); //Prevenimos el comportamiento por defecto del formulario que es enviar los datos a un servidor
+
+                //y luego con un bucle for vamos a recorrer lo que nosotros querramos recorres
+                for (let i = 0; i < miFormulario.elements.length; i++) { //recorremos todos los elementos del formulario 
+                    //y vamos a ir mostrando los datos que nosotros queramos
+                    let tipoElemento = miFormulario.elements[i].type; //obtenemos el tipo de elemento de la iteracion correspondiente. con esta linea obtengo todos los tipos del formulario.
+                    let nombreElemento = miFormulario.elements[i].name; //obtenemos el nombre del elemento de la iteracion correspondiente. con esta linea obtengo todos los nombres del formulario. el nombre es el ID.
+                    let valorElemento = miFormulario.elements[i].value; //obtenemos el valor del elemento de la iteracion correspondiente. con esta linea obtengo todos los valores del formulario. el valor es lo que escribimos en el formulario. Incluso los valores de los desplegables.
+                    //en el console log podemos mostrar los datos, pero lo que queremos es si coincide con la password.
+                    console.log(`ID = ${nombreElemento} : TIPO = ${tipoElemento} : VALOR = ${valorElemento}`);
+
+                }
+
+            })
+        }
+
+    </script>
+</body>
+
+</html>

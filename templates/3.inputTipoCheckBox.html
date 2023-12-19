@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CheckBox Form</title>
+</head>
+
+<body>
+
+    <form action="" method="">
+        <input type="checkbox" id="verano" value="SI">¿Te gusta el verano?<br>
+        <input type="submit"><br>
+    </form>
+    <button onclick="marcar()">Marcar checkbox</button>
+    <button onclick="desmarcar()">Desmarcar checkbox</button>
+    <script>
+        function marcar() {
+            document.getElementById("verano").checked = true;
+        }
+
+        function desmarcar() {
+            document.getElementById("verano").checked = false;
+        }
+    </script>
+</body>
+
+</html>
