@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uso de la palabra reservada this</title>
+</head>
+
+<body>
+    <h1>Trabajando con this</h1>
+    <form id="formulario" action="pagina.php">
+        <p>
+            <label for="nombre">Nombre: </label>
+            <input type="text" name="nombre" id="nombre" value="Constantino" />
+            <label for="apellidos">Apellidos: </label>
+            <input type="text" name="apellidos" id="apellidos" value="Veiga Perez" />
+            <label for="edad">Edad: </label>
+            <input type="password" name="edad" id="edad" value="55" />
+            <label for="pais">Pais: </label>
+            España
+            <input type="radio" name="pais" id="pais1" value="ES" />
+            Francia
+            <input type="radio" name="pais" id="pais2" value="FR" />
+        </p>
+        Haga click en cada uno de los campos para ver más información.
+    </form>
+
+    <script>
+
+        document.getElementById('nombre').addEventListener('click', identificar, false);
+        document.getElementById('apellidos').addEventListener('click', identificar, false);
+        document.getElementById('edad').addEventListener('click', identificar, false);
+        document.getElementById('pais1').addEventListener('click', identificar, false);
+        document.getElementById('pais2').addEventListener('click', identificar, false);
+
+        function identificar() {
+            let atrName = this.name;
+            let atrId = this.id;
+            let atrValue = this.value;
+            let atrType = this.type;
+
+            alert(
+                "Datos del campo pulsado:\n\nName: " +
+                atrName +
+                "\nID: " +
+                atrId +
+                "\nValue: " +
+                atrValue +
+                "\nType: " +
+                atrType
+            );
+        }
+    </script>
